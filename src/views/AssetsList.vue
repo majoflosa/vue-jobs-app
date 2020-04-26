@@ -1,5 +1,7 @@
 <template>
-    <h1>My Assets</h1>
+    <h1 class="main__title">
+        <span>My Application Assets</span>
+    </h1>
 </template>
 
 <script>

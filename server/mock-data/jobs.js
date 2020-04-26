@@ -1,22 +1,4 @@
-<template>
-    <section class="main">
-        <h1 class="main__title">
-            <span>My Job Applications</span>
-            <button class="main__new-job-btn">+ Add</button>
-
-        </h1>
-
-        <div class="main__jobs-list">
-            <job-item v-for="job in jobs" :job="job" :key="job.id" />
-        </div>
-    </section>
-</template>
-
-<script>
-import JobItem from '../components/JobItem';
-
-// temporary mock data
-const jobs = [
+export default [
     {
         id: 1,
         title: 'Front End Developer',
@@ -54,13 +36,3 @@ const jobs = [
         applied_through: 'LinkedIn'
     },
 ];
-
-export default {
-    name: 'JobsList',
-    // props: ['jobs'],
-    components: { 'job-item': JobItem },
-    data: function() {
-        return { jobs };
-    }
-}
-</script>
