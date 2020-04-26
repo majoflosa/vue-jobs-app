@@ -1,0 +1,76 @@
+.main__asset
+    margin-bottom: 15px
+    border-radius: 3px
+    padding: 15px
+    background: $lightestGrey
+
+    .fa-caret-circle-up
+        display: none
+
+.main__asset-header
+    padding: 10px 0
+    &:hover
+        cursor: pointer
+        svg
+            color: $primary
+
+.main__asset-title
+    margin: 0 auto
+    text-transform: uppercase
+    display: inline-block
+    vertical-align: middle
+
+a.main__asset-details-link
+    float: right
+    margin: -3px 15px 0 0
+    color: $midGrey
+
+    svg
+        font-size: 2em
+
+.expanded 
+    .main__asset-body
+        display: block
+    
+    .fa-caret-circle-up
+        display: inline-block
+        color: $primary
+    .fa-caret-circle-down
+        display: none
+
+.main__asset-body
+    margin: 15px auto 0
+    display: none
+
+.main__asset-link
+    border: $mainBorder
+    border-radius: 3px
+    padding: 8px 14px
+    margin-bottom: 10px
+    background: #fdfdfd
+
+    span
+        text-transform: uppercase
+        font-family: $titleFont
+        font-weight: 300
+        // display: inline-block
+        // width: 33%
+    
+a.main__asset-link-url
+    display: inline-block
+    margin-left: 30px
+    color: $midGrey
+    &:hover
+        text-decoration: underline
+
+.main__asset-template-text
+    display: inline-block
+    margin: 15px 0 0 0
+    color: $midGrey
+    clear: both
+    width: 100%
+
+    a
+        color: $primary
+        &:hover
+            text-decoration: underline

@@ -1,0 +1,83 @@
+.modal
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: #ffffff
+    overflow: scroll
+    display: none
+    &.showing
+        display: block
+
+.modal__inner
+    width: 90%
+    max-width: 700px
+    margin: 50px auto
+
+.modal__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+a.modal__close
+    top: 30px
+    right: 50px
+    color: $midGrey
+    &:hover
+        color: darken($midGrey, 20%)
+    *
+        display: inline-block
+        vertical-align: bottom
+    .fa-times
+        font-size: 1.25em
+        margin: 0 0 -2px 5px
+
+.modal__title
+    text-align: center
+    text-transform: uppercase
+    font-weight: 100
+
+.modal__body
+    background: $lightestGrey
+    padding: 30px
+    border-radius: 3px
+    margin: 30px auto
+
+.modal__field-group
+    margin: 0 0 30px
+    &:last-child
+        margin-bottom: 0
+
+    label
+        display: block
+        margin: 0 0 8px
+        color: darken($midGrey, 20%)
+
+    input[type="text"], textarea
+        width: 100%
+        box-sizing: border-box
+        padding: 10px 16px
+        font-size: 1.2em
+        font-size: 1.2rem
+        border-radius: 3px
+        border: $mainBorder
+        &:focus
+            border-color: $primary
+            outline: none
+        &::placeholder
+            color: lighten($midGrey, 10%)
+
+.modal__buttons
+    // text-align: center
+    button
+        font-size: 1.2em
+        padding: 12px 30px
+
+.delete-modal__inner
+    text-align: center
+    
+    .btn--danger-border
+        background: transparent
+        &:hover
+            background: $dangerColor

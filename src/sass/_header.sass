@@ -1,0 +1,27 @@
+.header
+    background-color: rgba(white, 0.9)
+    border-bottom: 1px solid lighten($primary, 25%)
+    color: $primary
+    margin: 0 auto
+    padding: 30px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-family: $titleFont
+    font-size: 0.85em
+    font-size: 0.85rem
+    text-transform: uppercase
+    position: fixed
+    top: 0
+    width: 100%
+    box-sizing: border-box
+
+a.header__navlink
+    color: $primary
+    margin: 0 8px
+    font-weight: 300
+    letter-spacing: 1px
+    &:hover
+        color: lighten($primary, 15%)
+    &.router-link-exact-active
+        font-weight: 700

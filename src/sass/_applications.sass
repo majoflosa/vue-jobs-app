@@ -1,0 +1,106 @@
+.main__job
+    margin-bottom: 15px
+    border-radius: 3px
+    padding: 15px
+    background: $lightestGrey
+
+    .fa-caret-circle-up
+        display: none
+
+.main__job-hdr
+    padding: 10px 0
+    &:hover
+        cursor: pointer
+        svg
+            color: $primary
+    
+    .main__job-company
+        color: darken($midGrey, 20%)
+
+.main__job-title
+    margin: 0 auto
+    text-transform: uppercase
+    // font-weight: 300
+    display: inline-block
+    vertical-align: middle
+
+.main__job-status
+    +mainBtn($primary)
+
+a.main__job-details-link
+    float: right
+    margin: 10px 15px 0 0
+    color: $midGrey
+
+    svg
+        font-size: 2em
+
+.main__job-body
+    margin: 15px auto 0
+    display: none
+
+.expanded 
+    background: $lightestGrey
+    
+    .main__job-body
+        display: block
+    
+    .fa-caret-circle-up
+        display: inline-block
+        color: $primary
+    .fa-caret-circle-down
+        display: none
+
+.main__job-info
+    span
+        display: inline-block
+        vertical-align: middle
+        margin: 0 12px 0 0
+        padding: 6px 12px
+        background: #ffffff
+        border-radius: 3px
+        border: 1px solid darken($lightestGrey, 5%)
+        color: #888888
+        strong
+            color: $darkFontColor
+
+.main__job-notes
+    strong
+        color: #888888
+    p
+        color: $darkFontColor
+
+.main__job-notes
+    margin: 20px auto 0
+    font-size: 1.1em
+    font-size: 1.1rem
+    strong
+        color: $darkFontColor
+        font-weight: normal
+    p
+        margin: 10px auto
+
+.main__job-ftr
+    display: flex
+    justify-content: space-between
+    align-items: center
+    color: lighten($mainFontColor, 20%)
+    font-size: 0.92em
+    font-size: 0.92rem
+    padding: 10px 0 0
+    margin: 10px auto 0
+    border-top: 1px dashed $mainBorderColor
+
+    p
+        margin: 0
+    strong
+        color: $darkFontColor
+        font-weight: normal
+
+a.main__job-edit, a.main__job-delete
+    margin: 0 0 0 10px
+    display: inline-block
+    +borderBtn
+    
+a.main__job-delete
+    +borderBtn($dangerColor)
