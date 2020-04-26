@@ -6,61 +6,42 @@
 
         </h1>
 
-        <div class="main__jobs-list">
+        <div v-if="loadingError"><h1>{{ loadingError }}</h1></div>
+
+        <div v-if="loaded" class="main__jobs-list">
             <job-item v-for="job in jobs" :job="job" :key="job.id" />
         </div>
+        <div v-else><h1>Loading your applications...</h1></div>
     </section>
 </template>
 
 <script>
 import JobItem from '../components/JobItem';
-
-// temporary mock data
-const jobs = [
-    {
-        id: 1,
-        title: 'Front End Developer',
-        post_url: 'http://example.com/jobs/31',
-        status: 'applied',
-        company: { name: 'Synectics Media', url: 'http://www.synecticsmedia.com' },
-        contract_type: 'full-time',
-        contact: { name: 'Micheal Synectics', address: 'mike@s13a.com' },
-        notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec enim nunc. Duis dolor nulla, vulputate sed elementum et, convallis ut mauris. Morbi sem metus, ornare nec facilisis at, pellentesque id metus.',
-        date_applied: 'November 13, 2018',
-        applied_through: 'email'
-    },
-    {
-        id: 2,
-        title: 'Mid-level Front End Developer',
-        post_url: 'http://example.com/jobs/31',
-        status: 'applied',
-        company: { name: 'The Hero Company', url: 'http://www.herocompany.com' },
-        contract_type: 'full-time',
-        // contact: { name: 'Micheal Synectics', address: 'mike@s13a.com' },
-        notes: 'Phasellus nec enim nunc. Duis dolor nulla, vulputate sed elementum et, convallis ut mauris. Morbi sem metus, ornare nec facilisis at, pellentesque id metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        date_applied: 'November 14, 2018',
-        applied_through: 'email'
-    },
-    {
-        id: 3,
-        title: 'JavaScript Developer',
-        post_url: 'http://example.com/jobs/31',
-        status: 'interview',
-        company: { name: 'Automattic', url: 'http://www.automattic.com' },
-        contract_type: 'part-time',
-        contact: { address: 'jobs@automattic.com' },
-        notes: 'Duis dolor nulla, vulputate sed elementum et, convallis ut mauris. Morbi sem metus, ornare nec facilisis at, pellentesque id metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec enim nunc.',
-        date_applied: 'November 16, 2018',
-        applied_through: 'LinkedIn'
-    },
-];
+import axios from 'axios';
 
 export default {
     name: 'JobsList',
-    // props: ['jobs'],
-    components: { 'job-item': JobItem },
+    components: { 
+        'job-item': JobItem
+    },
     data: function() {
-        return { jobs };
+        return { 
+            jobs: [],
+            loaded: false,
+            loadingError: null,
+        };
+    },
+    created: function() {
+        axios.get('http://localhost:8888/api/jobs')
+            .then(({ data }) => {
+                this.jobs = data;
+                this.loaded = true;
+            })
+            .catch(err => {
+                console.log(err);
+                this.loaded = true;
+                this.loadingError = 'Application list could not be loaded.'
+            });
     }
 }
 </script>

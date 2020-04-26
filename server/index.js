@@ -10,7 +10,7 @@ app.use(cors());
 const jobs = require('./mock-data/jobs');
 
 app.get('/api/jobs', (req, res) => {
-    res.status(500).json(jobs);
+    res.status(200).json(jobs);
 });
 
 
