@@ -32,7 +32,7 @@
                 </p>
                 <div class="main__job-buttons clearfix-after">
                     <a href="#" class="main__job-edit">Edit</a>
-                    <a href="#" class="main__job-delete">Delete</a>
+                    <a href="#" class="main__job-delete" @click.prevent="handleClickDelete">Delete</a>
                 </div>
             </footer>
         </div>
@@ -51,6 +51,10 @@ export default {
     methods: {
         toggleDetails() {
             this.isExpanded = !this.isExpanded;
+        },
+        handleClickDelete() {
+            // this.deleteJob(this.job.id);
+            this.$emit('delete-job', this.job.id);
         }
     }
 }
