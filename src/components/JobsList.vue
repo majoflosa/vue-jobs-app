@@ -1,9 +1,9 @@
 <template>
-    <div v-if="loaded" class="main__jobs-list">
+    <div v-if="loaded" class="main__jobs-list" key="jobs-list-load">
+        <div v-if="loadingError" key="loading-error"><h1>{{ loadingError }}</h1></div>
         <job-item v-for="job in jobs" :job="job" :key="job.id" @delete-job="removeJob" />
     </div>
-    <div v-else-if="loadingError"><h1>{{ loadingError }}</h1></div>
-    <div v-else><h1>Loading your applications...</h1></div>
+    <div v-else key="jobs-list-load"><h1>Loading your applications...</h1></div>
 </template>
 
 <script>

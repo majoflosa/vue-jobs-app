@@ -42,7 +42,9 @@
 <script>
 export default {
     name: 'JobItem',
-    props: ['job'],
+    props: {
+        job: Object
+    },
     data: function() {
         return {
             isExpanded: false,
