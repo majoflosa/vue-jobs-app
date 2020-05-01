@@ -31,8 +31,8 @@
                     <span v-if="job.applied_through"> through <strong>{{ job.applied_through }}</strong></span>
                 </p>
                 <div class="main__job-buttons clearfix-after">
-                    <a href="#" class="main__job-edit">Edit</a>
-                    <a href="#" class="main__job-delete" @click.prevent="handleClickDelete">Delete</a>
+                    <button class="main__job-edit">Edit</button>
+                    <button class="main__job-delete" @click.prevent="handleClickDelete">Delete</button>
                 </div>
             </footer>
         </div>

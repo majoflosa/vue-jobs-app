@@ -27,7 +27,13 @@ export default {
             this.jobs.push(job);
         },
         removeJob: function(id) {
-            this.jobs = this.jobs.filter(job => job.id !== id);
+            axios.delete(`http://localhost:8888/api/jobs/${id}`)
+                .then(({ data }) => {
+                    this.jobs = data;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         },
         updateJob: function(updatedJob) {
             this.jobs = this.jobs.map(job => {

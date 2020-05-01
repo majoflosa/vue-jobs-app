@@ -10,7 +10,22 @@ app.use(cors());
 const jobs = require('./mock-data/jobs');
 
 app.get('/api/jobs', (req, res) => {
-    res.status(200).json(jobs);
+    return res.status(200).json(jobs);
+});
+
+app.delete('/api/jobs/:id', (req, res) => {
+    let deletedIndex;
+    for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].id === +req.params.id) {
+            deletedIndex = i;
+            break;
+        }
+    }
+
+    jobs.splice(deletedIndex, 1);
+    console.log('jobs: ', jobs);
+
+    return res.status(200).json(jobs);
 });
 
 
