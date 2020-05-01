@@ -12,7 +12,7 @@ const routes = [
   { path: '/', name: 'home', component: JobsView },
   { path: '/assets', name: 'assets', component: AssetsList },
   { path: '/add-job', name: 'add-job', component: AddJob },
-  { path: '/edit-job', name: 'edit-job', component: EditJob },
+  { path: '/edit-job/:id', name: 'edit-job', component: EditJob },
   { path: '/add-asset', name: 'add-asset', component: AddAsset },
   { path: '/edit-asset', name: 'edit-asset', component: EditAsset },
 ];

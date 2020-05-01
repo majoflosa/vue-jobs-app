@@ -23,7 +23,6 @@ app.delete('/api/jobs/:id', (req, res) => {
     }
 
     jobs.splice(deletedIndex, 1);
-    console.log('jobs: ', jobs);
 
     return res.status(200).json(jobs);
 });

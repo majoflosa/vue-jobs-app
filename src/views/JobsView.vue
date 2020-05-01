@@ -2,7 +2,7 @@
     <section class="main">
         <h1 class="main__title">
             <span>My Job Applications</span>
-            <button class="main__new-job-btn">+ Add</button>
+            <router-link to="/add-job" class="main__new-job-btn">+ Add</router-link>
         </h1>
 
         <jobs-list />

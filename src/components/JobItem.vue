@@ -31,7 +31,11 @@
                     <span v-if="job.applied_through"> through <strong>{{ job.applied_through }}</strong></span>
                 </p>
                 <div class="main__job-buttons clearfix-after">
-                    <button class="main__job-edit">Edit</button>
+                    <router-link 
+                        :to="{ name: 'edit-job', params: { id: job.id }, query: { ...queryValues } }"
+                        class="main__job-edit">
+                        Edit
+                    </router-link>
                     <button class="main__job-delete" @click.prevent="handleClickDelete">Delete</button>
                 </div>
             </footer>
@@ -49,6 +53,22 @@ export default {
         return {
             isExpanded: false,
         };
+    },
+    computed: {
+        queryValues: function() {
+            return {
+                title: this.job.title,
+                url: this.job.post_url,
+                status: this.job.status,
+                companyName: this.job.company.name,
+                companyUrl: this.job.company.url,
+                contract: this.job.contract ? this.job.contract.type : '',
+                contact: this.job.contact ? this.job.contact.address : '',
+                notes: this.job.notes,
+                appliedOn: this.job.date_applied,
+                appliedThrough: this.job.applied_through
+            };
+        }
     },
     methods: {
         toggleDetails() {
